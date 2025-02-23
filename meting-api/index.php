@@ -42,9 +42,9 @@ if (in_array($type, ['song', 'playlist'])) {
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET');
 
-include __DIR__ . '/vendor/autoload.php';
+// include __DIR__ . '/vendor/autoload.php';
 // you can use 'Meting.php' instead of 'autoload.php'
-// include __DIR__ . '/src/Meting.php';
+include __DIR__ . '/src/Meting.php';
 
 use Metowolf\Meting;
 
@@ -52,16 +52,16 @@ $api = new Meting($server);
 $api->format(true);
 
 // 设置cookie
-/*if ($server == 'netease') {
-    $api->cookie('os=pc; osver=Microsoft-Windows-10-Professional-build-10586-64bit; appver=2.0.3.131777; channel=netease; MUSIC_U=****** ; __remember_me=true');
-}*/
+if ($server == 'netease') {
+    $api->cookie('osver=%E7%89%88%E6%9C%AC%2010.13.3%EF%BC%88%E7%89%88%E5%8F%B7%2017D47%EF%BC%89; os=osx; appver=1.5.9; MUSIC_U=00FB17C921A131D7F0429A32A2EA64239534A42E79D8B5F903921EFFFD3603280E53C63E3F5DD4FA828C9C4503A86A056E165FA2A1DD37B00CFB738F9264AC7B19133E3D5EC0D9C5580436AC08BBD7692DC5A23A40BE9893D4780AB8AF65B870FF2656EF9C64423485F6E829E180A82E1F3B137C2BD6CCC7F2807AD6E7EF4DBADEDB51EFAD5359B13CDFB2D0928FE00AB83A29497208449EE346D9A4AE8ECF898FDBE41B4DBE8CF43CEB59E330450E11700AB8F3E12CDC99C2FD8947892AAFBA471A5D7F137BA3F82DC03C81F6C4C9A66D9B617F7227519C4444B7982E9F9E0447E6D1F5A6EE6F6B48BBF53FC15792D9AF3528DB363C1156DCCA6DAABE5D9E40E3A962BA8F895FF642CF606AA3FD4E25E26D22F6FD7A8CD1F351282F69897CEFB4EF6A99FDABC77A4236C7ECCD29CE98B08BD6279CC861A19FAE4C402ABC52B8B317466F4FBF2138302C9DBE77800D043533CA438480D589314FDCF58F14A39378D2441F2E9F301F29CD5BA29B49363186; channel=netease;');
+}
 
 if ($type == 'playlist') {
 
     if (CACHE) {
         $file_path = __DIR__ . '/cache/playlist/' . $server . '_' . $id . '.json';
         if (file_exists($file_path)) {
-            if ($_SERVER['REQUEST_TIME'] - filectime($file_path) < CACHE_TIME) {
+            if ($_SERVER['REQUEST_TIME'] - filemtime($file_path) < CACHE_TIME) {
                 echo file_get_contents($file_path);
                 exit;
             }
@@ -160,7 +160,7 @@ function song2data($api, $song, $type, $id)
         case 'url':
             $m_url = json_decode($api->url($id, 320))->url;
             if ($m_url == '') break;
-            // url
+            // url format
             if ($api->server == 'netease') {
                 if ($m_url[4] != 's') $m_url = str_replace('http', 'https', $m_url);
             }
@@ -169,7 +169,7 @@ function song2data($api, $song, $type, $id)
             break;
 
         case 'pic':
-            $data = json_decode($api->pic($id, 800))->url;
+            $data = json_decode($api->pic($id, 90))->url;
             break;
 
         case 'lrc':

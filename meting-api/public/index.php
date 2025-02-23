@@ -14,6 +14,11 @@
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;netease 网易云音乐(默认)<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tencent QQ音乐<br />
     <br />
+    本站支持解析网易云VIP歌曲欢迎各位随时调用哦（网易云音乐人喵）
+    <br />
+    <br />
+    <br />
+    <br />
     type: 类型<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name 歌曲名<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;artist 歌手<br />
@@ -25,9 +30,18 @@
     id: 类型ID（封面ID/单曲ID/歌单ID）<br />
     <br />
     GitHub：<a href="https://github.com/injahow/meting-api" target="_blank">meting-api</a>，此API基于 <a href="https://github.com/metowolf/Meting" target="_blank">Meting</a> 构建。<br /><br />
-    例如：<a href="<?php echo API_URI ?>?type=url&id=416892104" target="_blank"><?php echo API_URI ?>?type=url&id=416892104</a><br />
+    例如：<a href="<?php echo API_URI ?>?type=url&id=1969519579" target="_blank"><?php echo API_URI ?>?type=url&id=1969519579</a><br />
+    <a href="<?php echo API_URI ?>?type=url&id=416892104" target="_blank" style="padding-left:48px"><?php echo API_URI ?>?type=url&id=416892104</a><br />
     <a href="<?php echo API_URI ?>?type=song&id=591321" target="_blank" style="padding-left:48px"><?php echo API_URI ?>?type=song&id=591321</a><br />
     <a href="<?php echo API_URI ?>?type=playlist&id=2619366284" target="_blank" style="padding-left:48px"><?php echo API_URI ?>?type=playlist&id=2619366284</a>
+    
+
+   <br/> 
+   <br/>
+   <br/>
+   <br/>
+©️2023 <a href="https:qijieya.cn" target="_blank">祈杰</a> All rights reserved.
+
 </body>
 
 </html>
